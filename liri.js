@@ -3,12 +3,13 @@ var fs = require("fs"); // allows you to work within the file system on node
 var keys = require("./keys.js");
 var moment = require('moment');
 moment().format();
-// var spotify = new Spotify(keys.spotify);
 var Spotify = require('node-spotify-api');
+var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 var action = process.argv[2];
 var parameter = process.argv[3];
 var movieName = process.argv.slice(3).join(" ");
+var songName = process.argv.slice(3).join(" ");
 
 // --------------------------------------------------------------------------------------------------//
 
@@ -87,7 +88,7 @@ switch (action) {
     break;
 
   case "spotify-this-song":
-  spotifySong();
+  spotifySong(songName);
   break;
 
   case "movie-this":
